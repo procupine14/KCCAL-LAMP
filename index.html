@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>KC Reminders</title>
+	<link rel="stylesheet" type="text/css" href="Foundation/css/app.css">
+	<link rel="stylesheet" type="text/css" href="Foundation/css/foundation.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/stickyfoot.css">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+</head>
+
+<body>
+	<script type="text/javascript" src="https://www.atlasestateagents.co.uk/javascript/tether.min.js"></script>
+	<script type="text/javascript" src="bootstrap/dist/js/bootstrap.js"></script>
+	</br>
+	<div class="container">
+	<!-- Form for customer data that will be put into the DB -->
+		<form action="input.php" method="POST">
+			<div class="form-group">
+				<!--<label for="name" class="col-form-label">Name:</label>-->
+				<input type="text" class="form-control" name="name" id="name" placeholder="Your Name">
+			</div>
+			<div class="form-group">
+				<!--<label for="name" class="col-form-label">Email:</label>-->
+				<input type="text" class="form-control" name="email" id="email" placeholder="Email">
+			</div>
+			<div class="form-group">
+				<!--<label for="name" class="col-form-label">Phone:</label>-->
+				<input type="text" class="form-control" name="phone" id="phone" placeholder="Phone">
+			</div>
+			<div class="form-group">
+				What "Collection Zone" do you live in?</br>
+				<input type="radio" name="zone" value="North Zone" id="North"/><label class="radio-inline">North</label>
+				<input type="radio" name="zone" value= "Central Zone" id="Central"/><label class="radio-inline">Central</label>
+				<input type="radio" name="zone" value= "South Zone" id="South"/><label class="radio-inline">South</label>
+				<p><a href="#" data-open="LocationMapModal">Help me Choose!</a></p>
+			</div>
+
+			<!-- <div class="form-group">
+				Clickable map
+				<ul class="list-inline">
+					<li>Select your location:</li>
+					<li><a class="test" href="#" data-toggle="tooltip" data-placement="right" title="Click the map to select your location.">This will be an icon at some point</a></li>
+				</ul>
+			</div>
+				This<br>
+				is<br>
+				where<br>
+				the<br>
+				map<br>
+				goes<br><br>
+			</div>
+			-->
+			<div class="form-group">
+			Please select your normal trash day:<br>
+			<label class="radio-inline"><input type="radio" name="dayradio" value="Monday">Monday</label>
+			<label class="radio-inline"><input type="radio" name="dayradio" value="Tuesday">Tuesday</label>
+			<label class="radio-inline"><input type="radio" name="dayradio" value="Wednesday">Wednesday</label>
+			<label class="radio-inline"><input type="radio" name="dayradio" value="Thursday">Thursday</label>
+			<label class="radio-inline"><input type="radio" name="dayradio" value="Friday">Friday</label>
+			</div>
+			<div class="form-group">
+			Type of notification to receive:<br>
+			<input type="checkbox" class="checkbox" name="notifEmail" value="email"> Email<br> <!-- This will send an email notification -->
+			<input type="checkbox" class="checkbox" name="notifCalendar" value="calendar"> Calendar<br> <!-- This will send a calendar notification -->
+			<input type="checkbox" class="checkbox" name="notifText" value="text"> Text<br> <!-- This will send a text message -->
+			</div>
+			<!--Submit and reset buttons -->
+			<div class="form-group">
+			<button class="btn btn-success"  type="submit">Submit</button><button class="btn btn-danger"type="reset">Reset</button>
+			</div>
+		</form>
+	</div>
+	<div class='reveal large' id='LocationMapModal' data-reveal>
+		<div class="containermod">
+			<div class="row vertical-align">
+				<div class="col-sm-11">
+				</div>
+				<div class="col-sm-1 text-center">
+					<button class="close-button btn pull-right" data-close aria-label="Close reveal" type="button">
+						<span aria-hidden="true">&#10006;</span>
+					</button>
+				</div>
+			</div>
+			<div class="row vertical-align">
+				<div class="col-sm-12 text-center">
+					<h1 id="modalTitle">Zone Maps</h1>
+					</br>
+				</div>
+			</div>
+			<div class="row vertical-align">
+				<div class="col-lg-8">
+					<div class="imgAbt">
+						<a href="#" onclick="zoneChoose('North Zone')" data-close aria-label="Close reveal">
+							<img width="500" height="500" src="img/NorthZone.png" />
+						</a>
+						</br>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<p><a href="#" onclick="zoneChoose(this.innerHTML)" data-close aria-label="Close reveal">North Zone</a></p>
+				</div>
+			</div>
+			<div class="row vertical-align">
+				<div class="col-lg-8">
+					<div class="imgAbt">
+						<a href="#" onclick="zoneChoose('Central Zone')" data-close aria-label="Close reveal">
+							<img width="500" height="500" src="img/CentralZone.png" />
+						</a>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<p><a href="#" onclick="zoneChoose(this.innerHTML)" data-close aria-label="Close reveal">Central Zone</a></p>
+				</div>
+			</div>
+			<div class="row vertical-align">
+				<div class="col-lg-8">
+					<div class="imgAbt">
+						<a href="#" onclick="zoneChoose('South Zone')" data-close aria-label="Close reveal">
+							<img width="500" height="500" src="img/SouthZone.png"/>
+						</a>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<p><a href="#" onclick="zoneChoose(this.innerHTML)" data-close aria-label="Close reveal">South Zone</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+<script type="text/javascript" src="Foundation/js/vendor/foundation.min.js"></script>
+<script type="text/javascript" src="Foundation/js/app.js"></script>
+	
+<!--Tooltip button-->
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+
+<footer class="stickyfooter">
+		<div class="container">
+			We created this thing because we're awesome.
+		</div>
+</footer>
+</body>
+
+
+</html>
